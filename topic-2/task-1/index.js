@@ -9,7 +9,16 @@
  * @returns массив с удаленным элементом
  */
 function removeSmallest(numbers) {
-    
+    if (!Array.isArray(numbers) || numbers.length == 0){
+        return new Array();
+    }
+
+    let min = Math.min(...numbers);
+    let indexMin = numbers.indexOf(min);
+    let result = numbers.slice();
+    result.splice(indexMin, 1);
+
+    return result;
 }
 
 module.exports.removeSmallest = removeSmallest;

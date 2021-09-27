@@ -15,6 +15,26 @@
 */
 const arrayStripped = (array, size) => {
 
+    if(array === null || size === null || typeof(size) != "number"){
+        throw new Error("error");
+    }
+    if(!Array.isArray(array)){
+        return new Array();
+    }
+
+    let groupCount = Math.floor(array.length / size);
+    let remainder = array.length % size;
+    let slicedArray = new Array();
+
+    let i = 0;
+    for(; i < groupCount; i++){
+        slicedArray.push(array.slice(i * size, (i + 1) * size));
+    }
+    if (remainder != 0){
+        slicedArray.push(array.slice(i * size, i * size + remainder));
+    }
+
+    return slicedArray
 }
 
 

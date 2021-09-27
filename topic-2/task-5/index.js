@@ -7,7 +7,14 @@ import {miniMathLib} from "../task-4";
  * Модифицировать miniMathLib из прошлой задачи - запрещено
  */
 function accurateAreaCalc() {
-    
+    const circleArea = (r) =>{
+        let cloneMiniMathLib = Object.assign({}, miniMathLib);
+        cloneMiniMathLib.pi = Math.PI.toFixed(5);
+
+        return cloneMiniMathLib.circleArea(r);
+    }
+
+    return circleArea;
 }
 
 

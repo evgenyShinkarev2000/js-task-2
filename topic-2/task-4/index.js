@@ -8,7 +8,11 @@
 const miniMathLib = {
     pi: 3.14,
     circleArea: function(radius) {
-        
+        if (radius < 0){
+            throw new Error();
+        }
+
+        return radius ** 2 * this.pi;
     }
 }
 
