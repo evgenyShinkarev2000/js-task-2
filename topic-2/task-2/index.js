@@ -22,16 +22,15 @@ const arrayStripped = (array, size) => {
         return new Array();
     }
 
-    let groupCount = Math.floor(array.length / size);
-    let remainder = array.length % size;
-    let slicedArray = new Array();
+    const groupCount = Math.floor(array.length / size);
+    const remainder = array.length % size;
+    const slicedArray = [];
 
-    let i = 0;
-    for(; i < groupCount; i++){
+    for(let i = 0; i < groupCount; i++){
         slicedArray.push(array.slice(i * size, (i + 1) * size));
     }
     if (remainder != 0){
-        slicedArray.push(array.slice(i * size, i * size + remainder));
+        slicedArray.push(array.slice(groupCount * size, groupCount * size + remainder));
     }
 
     return slicedArray
